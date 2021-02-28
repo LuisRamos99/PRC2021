@@ -13,51 +13,54 @@ fs.writeFile('ontologia.ttl', file, function (err) {
     console.log('Convertido com sucesso!');
   });
 
+
 function writeProfessores() {
     var file = ''
     professores.professores.forEach(p => {
-        file+= '<http://www.di.uminho.pt/prc2021/uc#' + p._id+ '> '
-        file+= 'rdf:type owl:NamedIndividual,\n'
+        file+= '\n###  http://www.di.uminho.pt/prc2021/uc#' + p._id + '\n' + ':' + p._id + ' ' + 'rdf:type owl:NamedIndividual' + ' ;' + '\n'
         var count = 1
-        file+= '                                        <http://www.di.uminho.pt/prc2021/uc#ensina> '
         p.ensina.forEach(e => {
-            if (count == p.ensina.length) file+= '<http://www.di.uminho.pt/prc2021/uc#' + e + '> ;\n'
+            if (count == p.ensina.length) file+= '\t' + ':ensina' + ' :' + e + ' ;' + '\n'
             else {
-                file+= '<http://www.di.uminho.pt/prc2021/uc#' + e + '> , '
+                file+= + '\t' + ':ensina' + ' :' + e + ' ,' 
                 count++
             }
         })
-        file+= '                                        <http://www.di.uminho.pt/prc2021/uc#nome> "' + p.nome + '" .\n\n\n'
+        file+= '\t' + ':nome "' +p.nome + '"  .' + '\n\n'
     })
     return file
 }
+
+
 
 function writeUcs() {
     var file = ''
     ucs.ucs.forEach(u => {
-        file+= '<http://www.di.uminho.pt/prc2021/uc#' + u._id+ '> '
-        file+= 'rdf:type owl:NamedIndividual,\n'
-        file+= '                                             <http://www.di.uminho.pt/prc2021/uc#anoLetivo> "' + u.anoLetivo + '" ;\n'
-        file+= '                                             <http://www.di.uminho.pt/prc2021/uc#designação> "' + u.designação + '" .\n\n\n'
+        file+= '###  http://www.di.uminho.pt/prc2021/uc#' + u._id + '\n' + ':' + u._id + ' ' + 'rdf:type owl:NamedIndividual' + ' ,' + '\n'
+        file+= '\t\t\t ' + ':UnidadeCurricular ;' + '\n' + '\t' + ':anoLetivo ' + u.anoLetivo + ' ;' + '\n' + '\t' + ':designacao "' + u.designação +'" .' + '\n\n'
     })
     return file
 }
 
+
 function writeAlunos() {
     var file = ''
     alunos.alunos.forEach(a => {
-        file+= '<http://www.di.uminho.pt/prc2021/uc#' + a._id+ '> '
-        file+= 'rdf:type owl:NamedIndividual,\n'
+        file+= '\n###  http://www.di.uminho.pt/prc2021/uc#' + a._id + '\n' + ':' + a._id + ' ' + 'rdf:type owl:NamedIndividual' + ' ;' + '\n'
         var count = 1
-        file+= '                                        <http://www.di.uminho.pt/prc2021/uc#frequenta> '
         a.frequenta.forEach(f => {
-            if (count == a.frequenta.length) file+= '<http://www.di.uminho.pt/prc2021/uc#' + f + '> ;\n'
+            if (count==1 && count == a.frequenta.length) file+= '\t' + ':frequenta ' + ' :' + f + ' ;\n'
+            else if (count==1) {
+                file+= '\t' + ':frequenta ' + ' :' + f + ' ,\n'
+                count++
+            }
+            else if (count==a.frequenta.length) file+= '\t\t\t\t' + ':' + f + ' ;' + '\n'
             else {
-                file+= '<http://www.di.uminho.pt/prc2021/uc#' + f + '> , '
+                file+= '\t\t\t\t' + ':' + f + ' ,\n'
                 count++
             }
         })
-        file+= '                                        <http://www.di.uminho.pt/prc2021/uc#nome> "' + a.nome + '" .\n\n\n'
+        file+= '\t' + ':nome "' +a.nome + '"  .' + '\n\n'
     })
     return file
 }
