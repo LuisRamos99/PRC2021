@@ -1,0 +1,32 @@
+{
+  "professores": [
+    {
+      "_id": "jcr",
+      "nome": "José Carlos Ramalho",
+      "ensina": [
+        "PRC2021"
+      ]
+    },
+    {
+      "_id": "jj",
+      "nome": "José João Antunes Guimarães Dias Almeida",
+      "ensina": [
+        "SPLN2021"
+      ]
+    },
+    {
+      "_id": "jfc",
+      "nome": "José Francisco Creissac Freitas Campos",
+      "ensina": [
+        "SI2021"
+      ]
+    },
+    {
+      "_id": "als",
+      "nome": "António Luís Pinto Ferreira Sousa",
+      "ensina": [
+        "LEI2021"
+      ]
+    }
+  ]
+}
