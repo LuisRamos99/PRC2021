@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h3 Lista de Períodos
+        if periodos.length > 0 
+         each pe in periodos
+          ul
+            li 
+              b Período: 
+              | 
+              a(href=`/repositorio/periodo/${pe.s.value.split("#")[1]}`) #{pe.s.value.split("#")[1]}
+        else
+            div(class="w3-container")
+                p Não há períodos ...
+        a(href=`/repositorio` ) 
+            button(class="w3-btn w3-teal" type="submit" style="margin:20px") Voltar ao inicio 
+    footer(class="w3-container w3-teal")
+        address Gerado por galuno :: 2021-Março, Luis Ramos

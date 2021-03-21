@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .w3-card-4
+      header.w3-container.w3-teal
+        h3.w3-left Grupo "#{id}"
+      if lista.length > 0 
+        each b in lista
+         if (b.o.type!="bnode")
+          ul
+            li 
+              if (b.o.value.split("#")[1]) 
+                b #{b.p.value.split("#")[1]} : 
+                | #{b.o.value.split("#")[1]} 
+              else 
+                b #{b.p.value.split("#")[1]} : 
+                | #{b.o.value} 
+      else 
+        div(class="w3-container")
+           p Não foi possível encontrar o grupo ... 
+      a(href=`/repositorio/grupos` ) 
+        button(class="w3-btn w3-teal" type="submit" style="margin:20px") Voltar 
+    footer(class="w3-container w3-teal")
+        address Gerado por galuno :: 2021-Março, Luis Ramos
