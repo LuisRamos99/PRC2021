@@ -1,0 +1,864 @@
+@prefix : <http://www.di.uminho.pt/prc2021/Condominio#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/Condominio> .
+
+<http://www.di.uminho.pt/prc2021/Condominio> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/Condominio#foiPagoPor
+:foiPagoPor rdf:type owl:ObjectProperty ;
+            owl:inverseOf :pagou .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#pagou
+:pagou rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#pertenceA
+:pertenceA rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/Condominio#data
+:data rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#descricao
+:descricao rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Pessoa .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#mensalidade
+:mensalidade rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Pessoa .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#numero
+:numero rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#origem
+:origem rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#permilagem
+:permilagem rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#telefone
+:telefone rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Pessoa .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#tipo
+:tipo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#valor
+:valor rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Apartamento
+:Apartamento rdf:type owl:Class ;
+             rdfs:subClassOf :Fracao .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Arrendatario
+:Arrendatario rdf:type owl:Class ;
+              rdfs:subClassOf :Pessoa .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Fracao
+:Fracao rdf:type owl:Class ;
+        rdfs:subClassOf :ListaFracoes .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Garagem
+:Garagem rdf:type owl:Class ;
+         rdfs:subClassOf :Fracao .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Gestao
+:Gestao rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#ListaFracoes
+:ListaFracoes rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Livro
+:Livro rdf:type owl:Class ;
+       rdfs:subClassOf :Gestao .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Loja
+:Loja rdf:type owl:Class ;
+      rdfs:subClassOf :Fracao .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Mapa
+:Mapa rdf:type owl:Class ;
+      rdfs:subClassOf :Gestao .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Mes
+:Mes rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Proprietário
+:Proprietário rdf:type owl:Class ;
+              rdfs:subClassOf :Pessoa .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/Condominio#A
+:A rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "Loja" ;
+   :mensalidade 6.06 ;
+   :permilagem 50 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#F
+:F rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "1Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#G
+:G rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "1Esq" ;
+   :mensalidade 51.63 ;
+   :permilagem 34 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#H
+:F rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "2Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#I
+:I rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "3Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#J
+:J rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "3Esq" ;
+   :mensalidade 51.63 ;
+   :permilagem 34 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#L
+:L rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "1Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#M
+:M rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "1Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#N
+:N rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "5Esq" ;
+   :mensalidade 51.63 ;
+   :permilagem 34 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#O
+:O rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "6Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#P
+:P rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "7Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Q
+:Q rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "7Esq" ;
+   :mensalidade 51.63 ;
+   :permilagem 34 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#R
+:R rdf:type owl:NamedIndividual ,
+            :Fracao ;
+   :descricao "8Dto" ;
+   :mensalidade 36.45 ;
+   :permilagem 24 .
+
+
+
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#CGD
+:CGD rdf:type owl:NamedIndividual ,
+              :Garagem .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#EDP
+:EDP rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Kone
+:Kone rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Serralheiro
+:Serralheiro rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#CMB
+:CMB rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#PluriRapel
+:PluriRapel rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Vizinhos
+:Vizinhos rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Limpeza
+:Limpeza rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Jan
+:Jan rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#1Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#1Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Esq> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Fev
+:Fev rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#1Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#1Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Esq> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Mar
+:Mar rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#1Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#1Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Esq> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Abr
+:Abr rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#1Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Esq> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#7Esq> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Mai
+:Mai rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Jun
+:Jun rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#5Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Jul
+:Jul rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Ago
+:Ago rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#6Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Set
+:Set rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Out
+:Out rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Nov
+:Nov rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Dez
+:Dez rdf:type owl:NamedIndividual ,
+              :Mes ;
+     :foiPagoPor <http://www.di.uminho.pt/prc2021/Condominio#3Dto> ,
+                 <http://www.di.uminho.pt/prc2021/Condominio#4Dto> .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Loja
+:Loja rdf:type owl:NamedIndividual ,
+               :Loja .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#Mar
+:Mar rdf:type owl:NamedIndividual .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#1Dto
+<http://www.di.uminho.pt/prc2021/Condominio#1Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento ;
+                                                  :pagou :Fev .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#1Esq
+<http://www.di.uminho.pt/prc2021/Condominio#1Esq> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2Dto
+<http://www.di.uminho.pt/prc2021/Condominio#2Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/001
+<http://www.di.uminho.pt/prc2021/Condominio#2020/001> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :CGD ;
+                                                      :data "2020-01-04" ;
+                                                      :descricao "Manutenção da conta" ;
+                                                      :numero "2020/001" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 7.28 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/002
+<http://www.di.uminho.pt/prc2021/Condominio#2020/002> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA <http://www.di.uminho.pt/prc2021/Condominio#7Esq> ;
+                                                      :data "2020-01-06" ;
+                                                      :descricao "Janeiro" ;
+                                                      :numero "2020/002" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/003
+<http://www.di.uminho.pt/prc2021/Condominio#2020/003> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA <http://www.di.uminho.pt/prc2021/Condominio#2Dto> ;
+                                                      :data "2020-01-06" ;
+                                                      :descricao "Abril a Dzembro de 2019" ;
+                                                      :numero "2020/003" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 406.62 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/004
+<http://www.di.uminho.pt/prc2021/Condominio#2020/004> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :EDP ;
+                                                      :data "2020-01-08" ;
+                                                      :descricao "Luz" ;
+                                                      :numero "2020/004" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 222.65 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/005
+<http://www.di.uminho.pt/prc2021/Condominio#2020/005> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Dto ;
+                                                      :data "2020-01-16" ;
+                                                      :descricao "Janeiro" ;
+                                                      :numero "2020/005" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 45.18 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/006
+<http://www.di.uminho.pt/prc2021/Condominio#2020/006> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :CGD ;
+                                                      :data "2020-02-01" ;
+                                                      :descricao "Manutenção da conta" ;
+                                                      :numero "2020/006" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 7.28 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/007
+<http://www.di.uminho.pt/prc2021/Condominio#2020/007> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :5Esq ;
+                                                      :data "2020-02-04" ;
+                                                      :descricao "Fevereiro" ;
+                                                      :numero "2020/007" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/008
+<http://www.di.uminho.pt/prc2021/Condominio#2020/008> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Esq ;
+                                                      :data "2020-02-04" ;
+                                                      :descricao "Fevereiro" ;
+                                                      :numero "2020/008" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/009
+<http://www.di.uminho.pt/prc2021/Condominio#2020/009> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :Kone ;
+                                                      :data "2020-01-20" ;
+                                                      :descricao "Manutenção dos elevadores: 1º trimestre" ;
+                                                      :numero "2020/009" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 439.77 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/010
+<http://www.di.uminho.pt/prc2021/Condominio#2020/010> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA <http://www.di.uminho.pt/prc2021/Condominio#1Esq> ,
+                                                                 <http://www.di.uminho.pt/prc2021/Condominio#3Esq> ;
+                                                      :data "2020-02-12" ;
+                                                      :descricao "Janeiro, Fevereiro e Março" ;
+                                                      :numero "2020/010" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 384.00 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/011
+<http://www.di.uminho.pt/prc2021/Condominio#2020/011> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Dto ;
+                                                      :data "2020-02-20" ;
+                                                      :descricao "Fevereiro" ;
+                                                      :numero "2020/011" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 45.18 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/011
+<http://www.di.uminho.pt/prc2021/Condominio#2020/011> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Dto ;
+                                                      :data "2020-02-20" ;
+                                                      :descricao "Fevereiro" ;
+                                                      :numero "2020/011" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 45.18 .
+
+              
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/012
+<http://www.di.uminho.pt/prc2021/Condominio#2020/012> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :Serralheiro ;
+                                                      :data "2020-02-24" ;
+                                                      :descricao "Concerto do trinco da porta" ;
+                                                      :numero "2020/012" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 20.00 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/013
+<http://www.di.uminho.pt/prc2021/Condominio#2020/013> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :CMB ;
+                                                      :data "2020-02-24" ;
+                                                      :descricao "Inspeção dos elevadores" ;
+                                                      :numero "2020/013" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 174.30 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/014
+<http://www.di.uminho.pt/prc2021/Condominio#2020/014> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :1Dto ;
+                                                      :data "2020-02-24" ;
+                                                      :descricao "Acertos: Janeiro, Fevereiro, Março, Abril e 13.58 de Maio" ;
+                                                      :numero "2020/014" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 194.30 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/015
+<http://www.di.uminho.pt/prc2021/Condominio#2020/015> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :5Dto ;
+                                                      :data "2020-03-11" ;
+                                                      :descricao "Janeiro a Junho" ;
+                                                      :numero "2020/015" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 271.08 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/016
+<http://www.di.uminho.pt/prc2021/Condominio#2020/016> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :PluriRapel ;
+                                                      :data "2020-03-11" ;
+                                                      :descricao "Reparação das fachadas" ;
+                                                      :numero "2020/016" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 1655.00 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/017
+<http://www.di.uminho.pt/prc2021/Condominio#2020/017> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :5Esq ;
+                                                      :data "2020-02-26" ;
+                                                      :descricao "Março" ;
+                                                      :numero "2020/017" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/018
+<http://www.di.uminho.pt/prc2021/Condominio#2020/018> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :3Dto ;
+                                                      :data "2020-02-29" ;
+                                                      :descricao "Janeiro a Dezembro" ;
+                                                      :numero "2020/018" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 542.16 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/019
+<http://www.di.uminho.pt/prc2021/Condominio#2020/019> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :EDP ;
+                                                      :data "2020-03-04" ;
+                                                      :descricao "Luz" ;
+                                                      :numero "2020/019" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 236.59 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/020
+<http://www.di.uminho.pt/prc2021/Condominio#2020/020> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Esq ;
+                                                      :data "2020-03-06" ;
+                                                      :descricao "Março" ;
+                                                      :numero "2020/020" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/021
+<http://www.di.uminho.pt/prc2021/Condominio#2020/021> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :CGD ;
+                                                      :data "2020-03-07" ;
+                                                      :descricao "Manutenção da conta" ;
+                                                      :numero "2020/021" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 7.28 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/022
+<http://www.di.uminho.pt/prc2021/Condominio#2020/022> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Dto ;
+                                                      :data "2020-03-15" ;
+                                                      :descricao "Março" ;
+                                                      :numero "2020/022" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 45.18 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/023
+<http://www.di.uminho.pt/prc2021/Condominio#2020/023> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :5Esq ;
+                                                      :data "2020-03-30" ;
+                                                      :descricao "Abril" ;
+                                                      :numero "2020/023" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/024
+<http://www.di.uminho.pt/prc2021/Condominio#2020/024> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :CGD ;
+                                                      :data "2020-04-04" ;
+                                                      :descricao "Manutençao da conta" ;
+                                                      :numero "2020/024" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 7.28 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/025
+<http://www.di.uminho.pt/prc2021/Condominio#2020/025> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Esq ;
+                                                      :data "2020-04-06" ;
+                                                      :descricao "Abril" ;
+                                                      :numero "2020/025" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 64.00 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/026
+<http://www.di.uminho.pt/prc2021/Condominio#2020/026> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :6Dto ;
+                                                      :data "2020-04-07" ;
+                                                      :descricao "Abril e Agosto" ;
+                                                      :numero "2020/026" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 225.90 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/027
+<http://www.di.uminho.pt/prc2021/Condominio#2020/027> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :7Dto ;
+                                                      :data "2020-04-14" ;
+                                                      :descricao "Abril" ;
+                                                      :numero "2020/027" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 45.18 .
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/028
+<http://www.di.uminho.pt/prc2021/Condominio#2020/028> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :Vizinhos ;
+                                                      :data "2020-04-15" ;
+                                                      :descricao "Luz Comum" ;
+                                                      :numero "2020/028" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 207.98 .
+
+
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/029
+<http://www.di.uminho.pt/prc2021/Condominio#2020/029> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :Limpeza ;
+                                                      :data "2020-04-15" ;
+                                                      :descricao "Limpeza 2020" ;
+                                                      :numero "2020/029" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 1080.00 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/030
+<http://www.di.uminho.pt/prc2021/Condominio#2020/030> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :4Dto ;
+                                                      :data "2020-04-15" ;
+                                                      :descricao "Janeiro a Dezembro" ;
+                                                      :numero "2020/030" ;
+                                                      :tipo "Receita" ;
+                                                      :valor 542.16 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#2020/031
+<http://www.di.uminho.pt/prc2021/Condominio#2020/031> rdf:type owl:NamedIndividual ,
+                                                               :Livro ;
+                                                      :pertenceA :Kone ;
+                                                      :data "2020-04-01" ;
+                                                      :descricao "Manutenção dos elevadores: 2º trimestre" ;
+                                                      :numero "2020/031" ;
+                                                      :tipo "Despesa" ;
+                                                      :valor 439.77 .
+
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#3Dto
+<http://www.di.uminho.pt/prc2021/Condominio#3Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#3Esq
+<http://www.di.uminho.pt/prc2021/Condominio#3Esq> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#4Dto
+<http://www.di.uminho.pt/prc2021/Condominio#4Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#5Dto
+<http://www.di.uminho.pt/prc2021/Condominio#5Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#5Esq
+<http://www.di.uminho.pt/prc2021/Condominio#5Esq> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#6Dto
+<http://www.di.uminho.pt/prc2021/Condominio#6Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#7Dto
+<http://www.di.uminho.pt/prc2021/Condominio#7Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#7Esq
+<http://www.di.uminho.pt/prc2021/Condominio#7Esq> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  http://www.di.uminho.pt/prc2021/Condominio#8Dto
+<http://www.di.uminho.pt/prc2021/Condominio#8Dto> rdf:type owl:NamedIndividual ,
+                                                           :Apartamento .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

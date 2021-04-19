@@ -1,0 +1,71 @@
+Querys do mini teste
+
+Estas querys foram testadas no ontobud no repositório "MiniTeste ID:Mini-Teste-PRc"
+
+Aluno -> a83930, Luis Ramos
+
+
+
+
+1)
+
+select distinct ?name where {
+  ?s :pertenceA ?name
+}
+
+
+
+
+2)
+
+select ?s where {
+  {?s rdf:type :Apartamento .}
+  UNION
+  {?s rdf:type :Loja .}
+  MINUS
+  {:Abr :foiPagoPor ?s}
+}
+
+
+
+
+3)
+
+select ?name (sum(?valor) as ?total) where {
+  ?s rdf:type :Livro.
+  ?s :tipo ?tipo .
+  FILTER regex(?tipo, "Despesa", "i" ) 
+  ?s :valor ?valor .
+  ?s :pertenceA ?name .
+}
+Group by (?name)
+order by(?total)
+
+
+
+
+4)
+
+select (sum(?mensalidade) as ?total) where {
+  {?s rdf:type :Mes .
+   ?s :foiPagoPor ?nome .}
+  //juntar estes que tivessem ?nome igual
+  {?s rdf:type :Fracao.
+   ?s :descricao ?nome.
+   ?s :mensalidade ?mensalidade. }
+}
+
+
+
+
+5)
+
+select ?nome (sum(?mensalidade) as ?total) where {
+  {?s rdf:type :Mes .
+   ?s :foiPagoPor ?nome .}
+  //juntar estes que tivessem ?nome igual
+  {?s rdf:type :Fracao.
+   ?s :descricao ?nome.
+   ?s :mensalidade ?mensalidade. }
+}
+group by(?nome)
