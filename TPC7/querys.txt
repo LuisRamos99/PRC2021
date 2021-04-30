@@ -1,0 +1,12 @@
+
+//mostrar  o id da ligacao, a distancia, o nome da origem e do destino de todas as ligações
+
+select ?idLig ?distancia ?origem ?destino where {
+  ?idLig rdf:type :Ligacao .
+  ?idLig :distancia ?distancia .
+  ?idLig :temOrigemEm ?idOri .
+  ?idOri rdf:type :Cidade.
+  ?idOri :nome ?origem .
+  ?idLig :temComoDestino ?idDes .
+  ?idDes :nome ?destino .
+}
