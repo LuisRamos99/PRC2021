@@ -1,0 +1,64 @@
+1) 
+select (count(?s) as ?total) where {
+  ?s rdf:type :EMD.
+}
+
+
+2)
+
+select * where {
+  ?s rdf:type :EMD.
+  ?s :resultado ?r.
+  FILTER regex (str(?r), "True").
+}
+
+
+
+3)
+
+
+select ?gene (count(?s) as ?total) where {
+  ?s rdf:type :EMD.
+  ?s :referenteA ?b.
+  ?b rdf:type :Atleta.
+  ?b :genero ?gene.
+}
+group by(?gene)
+
+
+
+4)
+
+select ?b (count(?s) as ?total) where {
+  ?s rdf:type :EMD.
+  ?s :referenteA ?b.
+  ?b rdf:type :Modalidade.
+}
+group by(?b)
+
+
+5)
+
+select (count(?b) as ?total) where {
+  ?s rdf:type :EMD.
+  ?s :referenteA ?b.
+  ?b rdf:type :Atleta.
+  ?b :pertenceA ?clube.
+  ?b :federado ?f. 
+  FILTER regex (str(?clube), "GDGoma").
+  FILTER regex (str(?f), "True").
+}
+
+
+
+6)
+
+elect (count(?b) as ?total) where {
+  ?s rdf:type :EMD.
+  ?s :referenteA ?b.
+  ?s :referenteA ?m.
+  ?b rdf:type :Atleta.
+  ?b :genero ?f. 
+  FILTER regex (str(?f), "F").
+  FILTER regex (str(?m), "Triatlo").
+}

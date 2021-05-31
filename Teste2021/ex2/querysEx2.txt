@@ -1,0 +1,107 @@
+1)
+
+PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+construct {
+    ?i1 :irmao ?i2.
+    ?i2 :irmao ?i1.
+}
+where {
+    ?i1 :temProgenitor ?pai.
+    ?i2 :temProgenitor ?pai.
+    ?i1 :temProgenitor ?mae.
+    ?i2 :temProgenitor ?mae.
+    FILTER (?i1 != ?i2)
+    FILTER (?mae != ?pai)   
+}
+
+
+
+
+
+2)
+
+PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+construct {
+    ?b :eBisavoDe ?f.
+}
+where {
+    ?f :temProgenitor ?p1.
+    ?p1 :temProgenitor ?p2.
+    ?p2 :temPai ?b.
+}
+
+
+
+
+
+
+3)
+
+
+PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+CONSTRUCT 
+  {  
+    ?f :éDescenteDe ?p.
+   } 
+WHERE 
+  { 
+    ?f :temProgenitor ?p.
+  }
+
+
+
+
+
+4)
+
+
+PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+CONSTRUCT 
+  {  
+    ?p1 :primo ?p2.
+    ?p2 :primo ?p1.
+   } 
+WHERE 
+  { 
+    ?p1 :temProgenitor ?i1.
+    ?p2 :temProgenitor ?i2.
+    ?i2 :temProgenitor ?avo.
+    ?i1 :temProgenitor ?avo.
+    FILTER (?p1 != ?p2)
+    FILTER (?i1 != ?i2)   
+  }
+
+
+
+
+
+  5)
+
+  PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+  CONSTRUCT 
+    {  
+      ?p :genero "Masculino".
+      ?m :genero "Feminino".
+    } 
+  WHERE 
+    { 
+      ?f :temPai ?p.
+      ?f :temMae ?m.
+    }
+
+
+
+
+
+
+    6)
+
+    PREFIX : <http://prc.di.uminho.pt/2021/myfamily#>
+    CONSTRUCT 
+      {  
+        :José_Carlos_Leite_Ramalho_1967 :temRelacaoCom ?individuo
+       } 
+    WHERE 
+      { 
+        :José_Carlos_Leite_Ramalho_1967 ?o ?individuo.
+      }
