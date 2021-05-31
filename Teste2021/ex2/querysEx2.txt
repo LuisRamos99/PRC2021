@@ -45,7 +45,7 @@ CONSTRUCT
    } 
 WHERE 
   { 
-    ?f :temProgenitor ?p.
+    ?f :temProgenitor+ ?p.
   }
 
 
